@@ -34,17 +34,19 @@ const Auth = {
   },
 
   register (cb, email, password) {
+    console.log('Auth::register')
     this.agent.post('/users', {user: {
-      // username: username,
       email: email,
       password: password
     }})
       .then((resp) => {
+        console.log('Auth::register::success')
         let user = resp.data.user;
         localStorage.setItem('user', JSON.stringify(user));
         cb(null);
       })
       .catch((err) => {
+        console.log('Auth::register::error')
         console.error(err);
         cb(err);
       });

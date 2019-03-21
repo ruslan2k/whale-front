@@ -6,11 +6,9 @@ const Register = (props) => {
 
   const handleSubmit = (values) => {
     const { email, password } = values
-    console.log('success', values)
     Auth.register(err => {
       if (err) {
-        console.log(err)
-        return
+        return console.error(err)
       }
       props.history.push('/')
     }, email, password)
