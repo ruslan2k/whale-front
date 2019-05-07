@@ -68,7 +68,6 @@ class CameraItem extends React.Component {
         return imageExistsP(data.thumbnail.url)
       })
       .catch(err => {
-        console.error(err)
         this.setState({ thumbnail: { url: DEFAULT_IMG }})
       })
   }
@@ -77,12 +76,21 @@ class CameraItem extends React.Component {
     const { item, thumbnail } = this.state
     const uid = item.uid
     const btnColor = item.is_online ? ' is-success' : ' is-dark'
+    const styles = {
+      backgroundImage: `url(${thumbnail.url})`,
+      height: '300px',
+      backgroundSize: 'cover',
+    }
     return (
-      <div className='column'>
+      <div className='mdl-cell mdl-cell--4-col mdl-cell--12-col-phone'
+        styles={styles}
+      >
         <Link to={`/cameras/${uid}`} className={`button ${btnColor}`}>{item.name}</Link>
+        {/*
         <figure className="image">
           <img src={thumbnail.url} />
         </figure>
+        */}
       </div>
     )
   }
@@ -121,8 +129,8 @@ class CamerasPage extends React.Component {
     })
     return (
       <div>
-        <h1 className="title">{name}</h1>
-        <div className='columns'>
+        <h1 className='title'>{name}</h1>
+        <div className='mdl-grid'>
           {listItems}
         </div>
       </div>
