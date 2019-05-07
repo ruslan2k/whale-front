@@ -84,11 +84,6 @@ class CameraItem extends React.Component {
         style={style}
       >
         <Link to={`/cameras/${uid}`} className={`button ${btnColor}`}>{item.name}</Link>
-        {/*
-        <figure className="image">
-          <img src={thumbnail.url} />
-        </figure>
-        */}
       </div>
     )
   }
