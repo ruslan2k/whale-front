@@ -32,15 +32,13 @@ class LoginForm extends React.Component {
           <label className="mdl-textfield__label" for="sample3">Email</label>
         </div>
         <br />
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input className="mdl-textfield__input" type="password" id="sample4" name="password" onChange={this.handleChange} />
-            <label className="mdl-textfield__label" for="sample4">Password</label>
-          </div>
-        {/* TODO */}
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input className="mdl-textfield__input" type="password" id="sample4" name="password" onChange={this.handleChange} />
+          <label className="mdl-textfield__label" for="sample4">Password</label>
+        </div>
         <div>
           <button className="mdl-button mdl-js-button mdl-button--raised" type="submit">{this.props.title}</button>
         </div>
-
       </form>
     )
   }

@@ -1,6 +1,20 @@
 import React from 'react'
 import Auth from '../Auth'
 import { Link, Route } from 'react-router-dom'
+const DEFAULT_IMG = 'https://jklsu.000webhostapp.com/whale-tail.jpeg'
+
+var imageExistsP = function (url) {
+  return new Promise(function (resolve, reject) {
+    var image = new Image();
+    image.onload = function () {
+      resolve(url)
+    }
+    image.onerror = function () {
+      reject(new Error(`Cant get image: ${url}`))
+    }
+    image.src = url
+  })
+}
 
 class CameraPage extends React.Component {
   constructor(props) {
@@ -39,10 +53,11 @@ class CameraPage extends React.Component {
   }
 }
 
+// FIXME
 class CameraItem extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { item: props.item, thumbnail: {} }
+    this.state = { item: props.item, thumbnail: { url: DEFAULT_IMG } }
   }
 
   componentDidMount() {
@@ -50,6 +65,11 @@ class CameraItem extends React.Component {
     Auth.get(`thumbnails/camera/${uid}/size/large`)
       .then(({ data }) => {
         this.setState({ thumbnail: data.thumbnail })
+        return imageExistsP(data.thumbnail.url)
+      })
+      .catch(err => {
+        console.error(err)
+        this.setState({ thumbnail: { url: DEFAULT_IMG }})
       })
   }
 
