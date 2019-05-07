@@ -27,17 +27,19 @@ class LoginForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <h1 className='title'>{this.props.title}</h1>
 
-        <div className="field">
-          <label className="label" htmlFor="email">Email</label>
-          <input className="input" name="email" type="text" onChange={this.handleChange} />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input className="mdl-textfield__input" type="text" id="sample3" name="email" onChange={this.handleChange} />
+          <label className="mdl-textfield__label" for="sample3">Email</label>
         </div>
-
-        <div className="field">
-          <label className="label">Password</label>
-          <input className="input" name="password" type="password" onChange={this.handleChange} />
+        <br />
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input className="mdl-textfield__input" type="password" id="sample4" name="password" onChange={this.handleChange} />
+            <label className="mdl-textfield__label" for="sample4">Password</label>
+          </div>
+        {/* TODO */}
+        <div>
+          <button className="mdl-button mdl-js-button mdl-button--raised" type="submit">{this.props.title}</button>
         </div>
-
-        <button className="button is-primary" type="submit">{this.props.title}</button>
 
       </form>
     )

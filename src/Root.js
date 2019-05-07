@@ -17,10 +17,10 @@ const store = createStore(rootReducer)
 const Menu = () => {
   return (
     <div>
-      <Link className='button is-link' to='/'>Home</Link>
-      <Link className='button is-link' to='/register'>Register</Link>
-      <Link className='button is-link' to='/login'>Login</Link>
-      <Link className='button is-link' to='/logout'>Logout</Link>
+      <Link className='mdl-button mdl-js-button mdl-button--raised' to='/'>Home</Link>
+      <Link className='mdl-button mdl-js-button mdl-button--raised' to='/register'>Register</Link>
+      <Link className='mdl-button mdl-js-button mdl-button--raised' to='/login'>Login</Link>
+      <Link className='mdl-button mdl-js-button mdl-button--raised' to='/logout'>Logout</Link>
     </div>
   )
 }
