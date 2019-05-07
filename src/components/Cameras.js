@@ -76,14 +76,12 @@ class CameraItem extends React.Component {
     const { item, thumbnail } = this.state
     const uid = item.uid
     const btnColor = item.is_online ? ' is-success' : ' is-dark'
-    const styles = {
+    const style = {
       backgroundImage: `url(${thumbnail.url})`,
-      height: '300px',
-      backgroundSize: 'cover',
     }
     return (
       <div className='mdl-cell mdl-cell--4-col mdl-cell--12-col-phone'
-        styles={styles}
+        style={style}
       >
         <Link to={`/cameras/${uid}`} className={`button ${btnColor}`}>{item.name}</Link>
         {/*
