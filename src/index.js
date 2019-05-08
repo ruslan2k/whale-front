@@ -7,6 +7,9 @@ import Root from './Root'
 import registerServiceWorker from './registerServiceWorker'
 import 'material-design-lite/material.css'
 import 'material-design-lite'
+import VConsole from 'vconsole'
+
+const vConsole = new VConsole()
 
 const todoApp = (state = [], action) => state
 const store = createStore(todoApp, ['Use Redux'])
